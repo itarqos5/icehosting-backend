@@ -1,12 +1,19 @@
 {
   "name": "icehosting-signup-page",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "main": "backend.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.7",
+    "cors": "^2.8.5",
+    "axios": "^0.21.1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "IceHosting Signup Page"
 }
