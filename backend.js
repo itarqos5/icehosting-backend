@@ -35,6 +35,19 @@ function getLocalIP() {
     return "Unknown IP";
 }
 
+// Promo codes route
+app.get("/promo", (req, res) => {
+    const promoCodes = {
+        "5entur3d": "25%",
+        "atlantic$": "15%",
+        "system3m4k": "30%",
+        "Rawcode": "65%",
+        "OPERATOR.in": "10%"
+    };
+    res.json(promoCodes);
+});
+
+
 // Create User API Route
 app.post("/create-user", async (req, res) => {
     try {
