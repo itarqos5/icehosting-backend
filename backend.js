@@ -42,7 +42,9 @@ app.get("/promo", (req, res) => {
         "atlantic$": "15%",
         "system3m4k": "30%",
         "Rawcode": "65%",
-        "OPERATOR.in": "10%"
+        "OPERATOR.in": "10%",
+        "J3llySlime": "20%",
+        "itar.d3v": "50%"
     };
     res.json(promoCodes);
 });
