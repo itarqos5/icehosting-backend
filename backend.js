@@ -44,7 +44,8 @@ app.get("/promo", (req, res) => {
         "Rawcode": "65%",
         "OPERATOR.in": "10%",
         "J3llySlime": "20%",
-        "itar.d3v": "50%"
+        "itar.d3v": "50%",
+        "blazecore": "15%"
     };
     res.json(promoCodes);
 });
