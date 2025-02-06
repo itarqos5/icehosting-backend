@@ -45,7 +45,8 @@ app.get("/promo", (req, res) => {
         "OPERATOR.in": "10%",
         "J3llySlime": "20%",
         "itar.d3v": "50%",
-        "blazecore": "15%"
+        "blazecore": "15%",
+        "SpunkzyOMG": "25%"
     };
     res.json(promoCodes);
 });
@@ -85,4 +86,12 @@ const PORT = 3000;
 app.listen(PORT, async () => {
     const publicIP = await getPublicIP();
     console.log(`Backend running on local IP: ${getLocalIP()}, public IP: ${publicIP}, port: ${PORT}`);
+});
+
+// Middleware to log user IP and username
+app.use((req, res, next) => {
+    const userIP = req.ip || req.connection.remoteAddress;
+    const { username } = req.body || {}; // Assuming username is sent in JSON body
+    console.log(`Request from IP: ${userIP}, Username: ${username || 'Unknown'}`);
+    next();
 });
