@@ -10,6 +10,7 @@ app.use(cors()); // Allow frontend requests
 
 const API_KEY = "ptla_aSTJlHfPia5QMubiIsQ3kRqAHAV36X2msA7c7ZjcmgV";
 const PTERO_URL = "https://panel.icehosting.cloud/api/application/users";
+const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1337389894686998568/Oi6AH8AUjCxQXv6tqMP3X1RRd1HsLp1ol2wfFwcnW9P5085l3HBavcDTA2Og-LdPGcoN";
 
 // Function to get public IP
 async function getPublicIP() {
@@ -34,6 +35,29 @@ function getLocalIP() {
     }
     return "Unknown IP";
 }
+
+app.post("/sendPurchase", async (req, res) => {
+    try {
+        const data = req.body;
+        const discordEmbed = {
+            content: null,
+            embeds: [
+                {
+                    title: "Purchase Log Detected",
+                    description: `A new user has signed up for IceHosting\n\n**Discord username:** ${data.discord}\n**Their plan details:**\n  **RAM:** ${data.ram}GB\n  **Processor:** ${data.processor}\n  **First Name:** ${data.firstName}\n  **Last Name:** ${data.lastName}\n**Platform**: ${data.platform}\n**Email:** ${data.email}\n**Hosting Type:** ${data.htype}\n**Storage Amount:** ${data.storage}\n**Storage Type:** ${data.storage_type}\n **Discord bot programming language:** ${data.bot_programming_lang}\n Promocode: ${data.promocode}`,
+                    color: 1753560,
+                    author: { name: "IceHosting Signup System" }
+                }
+            ]
+        };
+
+        await axios.post(DISCORD_WEBHOOK_URL, discordEmbed);
+        res.status(200).json({ message: "Success" });
+    } catch (error) {
+        console.error("Error sending to Discord:", error);
+        res.status(500).json({ error: "Failed to send webhook" });
+    }
+});
 
 // Promo codes route
 app.get("/promo", (req, res) => {
