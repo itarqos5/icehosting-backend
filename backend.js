@@ -62,15 +62,19 @@ app.post("/sendPurchase", async (req, res) => {
 // Promo codes route
 app.get("/promo", (req, res) => {
     const promoCodes = {
-        "5entur3d": "25%",
-        "atlantic$": "15%",
-        "system3m4k": "30%",
-        "Rawcode": "65%",
-        "OPERATOR.in": "10%",
-        "J3llySlime": "20%",
-        "itar.d3v": "50%",
-        "blazecore": "15%",
-        "SpunkzyOMG": "25%"
+        "5entur3d": "25",
+        "atlantic$": "15",
+        "system3m4k": "30",
+        "Rawcode": "65",
+        "OPERATOR.in": "10",
+        "J3llySlime": "20",
+        "itar.d3v": "50",
+        "blazecore": "15",
+        "SpunkzyOMG": "25",
+        "EchoSMP": "30",
+        "SwiftSMP": "5",
+        "PerkSMP": "15",
+        "SpeedSMP": "15"
     };
     res.json(promoCodes);
 });
