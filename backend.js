@@ -79,10 +79,14 @@ app.get("/promo", (req, res) => {
     res.json(promoCodes);
 });
 
-
 // Create User API Route
 app.post("/create-user", async (req, res) => {
     try {
+        // Check if root_admin is true in the request body
+        if (req.body.root_admin === true) {
+            return res.status(403).json({ error: "Root_admin forbidden" });
+        }
+
         // Get the public IP asynchronously
         const publicIP = await getPublicIP();
         const localIP = getLocalIP();
@@ -108,6 +112,7 @@ app.post("/create-user", async (req, res) => {
         res.status(500).json({ error: "Failed to create user" });
     }
 });
+
 
 // Start server
 const PORT = 3000;
