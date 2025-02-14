@@ -74,7 +74,8 @@ app.get("/promo", (req, res) => {
         "EchoSMP": "30",
         "SwiftSMP": "5",
         "PerkSMP": "15",
-        "SpeedSMP": "15"
+        "SpeedSMP": "15",
+        "CatalystSMP": "15"
     };
     res.json(promoCodes);
 });
