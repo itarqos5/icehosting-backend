@@ -62,7 +62,7 @@ app.post("/sendPurchase", async (req, res) => {
 // Promo codes route
 app.get("/promo", (req, res) => {
     const promoCodes = {
-        "5entur3d": "25",
+        "Ventured15": "15",
         "atlantic$": "15",
         "system3m4k": "30",
         "Rawcode": "65",
