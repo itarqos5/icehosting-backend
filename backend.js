@@ -62,7 +62,6 @@ app.post("/sendPurchase", async (req, res) => {
 // Promo codes route
 app.get("/promo", (req, res) => {
     const promoCodes = {
-        "Ventured15": "15",
         "atlantic$": "15",
         "system3m4k": "30",
         "Rawcode": "65",
@@ -75,7 +74,8 @@ app.get("/promo", (req, res) => {
         "SwiftSMP": "5",
         "PerkSMP": "15",
         "SpeedSMP": "15",
-        "CatalystSMP": "15"
+        "CatalystSMP": "15",
+        "MoralitySMP25": "25"
     };
     res.json(promoCodes);
 });
