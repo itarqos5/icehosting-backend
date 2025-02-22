@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors()); // Allow frontend requests
 
-const API_KEY = "ptla_fdWR08DkNgl2d5nEadEN5D2GuaFST8aSFZ8puP1UOkF";
+const API_KEY = "ptla_S3ND6wQ9REMJj1eymksB90ylT61xiX3xaGaA989bUct";
 const PTERO_URL = "https://panel.icehosting.cloud/api/application/users";
 const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1337389894686998568/Oi6AH8AUjCxQXv6tqMP3X1RRd1HsLp1ol2wfFwcnW9P5085l3HBavcDTA2Og-LdPGcoN";
 
