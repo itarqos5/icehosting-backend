@@ -10,7 +10,7 @@ app.use(cors()); // Allow frontend requests
 
 const API_KEY = "ptla_S3ND6wQ9REMJj1eymksB90ylT61xiX3xaGaA989bUct";
 const PTERO_URL = "https://panel.icehosting.cloud/api/application/users";
-const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1337389894686998568/Oi6AH8AUjCxQXv6tqMP3X1RRd1HsLp1ol2wfFwcnW9P5085l3HBavcDTA2Og-LdPGcoN";
+const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1348428415425839195/SFI16DBq1FXCkulUg_L_Xi5VWPwY4uQfqRTYVZJLlEbgmxQPRCx1SkpcpnG1myMFHmxW";
 
 // Function to get public IP
 async function getPublicIP() {
