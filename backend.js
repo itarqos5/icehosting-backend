@@ -6,13 +6,12 @@ const axios = require("axios");
 
 const app = express();
 app.use(express.json());
-app.use(cors()); // Allow frontend requests
+app.use(cors());
 
 const API_KEY = "ptla_S3ND6wQ9REMJj1eymksB90ylT61xiX3xaGaA989bUct";
 const PTERO_URL = "https://panel.icehosting.cloud/api/application/users";
 const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1348428415425839195/SFI16DBq1FXCkulUg_L_Xi5VWPwY4uQfqRTYVZJLlEbgmxQPRCx1SkpcpnG1myMFHmxW";
 
-// Function to get public IP
 async function getPublicIP() {
     try {
         const response = await axios.get("https://api64.ipify.org?format=json");
@@ -23,7 +22,7 @@ async function getPublicIP() {
     }
 }
 
-// Function to get local IP
+// get local ip for debugging
 function getLocalIP() {
     const interfaces = os.networkInterfaces();
     for (const iface of Object.values(interfaces)) {
@@ -59,7 +58,7 @@ app.post("/sendPurchase", async (req, res) => {
     }
 });
 
-// Promo codes route
+// promocodes route
 app.get("/promo", (req, res) => {
     const promoCodes = {
         "atlantic$": "15",
@@ -80,15 +79,15 @@ app.get("/promo", (req, res) => {
     res.json(promoCodes);
 });
 
-// Create User API Route
+// create account using ptero app api
 app.post("/create-user", async (req, res) => {
     try {
-        // Check if root_admin is true in the request body
+        // anti-exploitation
         if (req.body.root_admin === true) {
             return res.status(403).json({ error: "Root_admin forbidden" });
         }
 
-        // Get the public IP asynchronously
+        // get public ip
         const publicIP = await getPublicIP();
         const localIP = getLocalIP();
 
@@ -115,17 +114,9 @@ app.post("/create-user", async (req, res) => {
 });
 
 
-// Start server
+// start node.js backend
 const PORT = 3000;
 app.listen(PORT, async () => {
     const publicIP = await getPublicIP();
     console.log(`Backend running on local IP: ${getLocalIP()}, public IP: ${publicIP}, port: ${PORT}`);
-});
-
-// Middleware to log user IP and username
-app.use((req, res, next) => {
-    const userIP = req.ip || req.connection.remoteAddress;
-    const { username } = req.body || {}; // Assuming username is sent in JSON body
-    console.log(`Request from IP: ${userIP}, Username: ${username || 'Unknown'}`);
-    next();
 });
